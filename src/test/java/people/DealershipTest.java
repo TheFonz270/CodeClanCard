@@ -109,7 +109,7 @@ public class DealershipTest {
         assertEquals(0, customer.getCollection().size());
         assertEquals(350000, dealership.getTill(),0);
         assertEquals(20000, customer.getFunds(),0);
-        dealership.sellCar(carE1, customer);
+        System.out.println(dealership.sellCar(carE1, customer));
         assertEquals(1, dealership.getStock().size());
         assertEquals(0, customer.getCollection().size());
         assertEquals(350000, dealership.getTill(),0);
