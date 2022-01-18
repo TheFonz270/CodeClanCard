@@ -22,5 +22,10 @@ public class Customer {
 
     public void buyCar(Car _car){
         this.collection.add(_car);
+        this.payMoney(_car);
+    }
+    
+    public void payMoney(Car _car){
+        this.funds -= _car.getPrice();
     }
 }

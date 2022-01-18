@@ -93,9 +93,13 @@ public class DealershipTest {
         dealership.buyCar(carH1);
         assertEquals(3, dealership.getStock().size());
         assertEquals(0, customer.getCollection().size());
+        assertEquals(350000, dealership.getTill(),0);
+        assertEquals(20000, customer.getFunds(),0);
         dealership.sellCar(carP1, customer);
         assertEquals(2, dealership.getStock().size());
         assertEquals(1, customer.getCollection().size());
+        assertEquals(366000, dealership.getTill(),0);
+        assertEquals(4000, customer.getFunds(),0);
     }
 
     @Test
@@ -112,5 +116,15 @@ public class DealershipTest {
         assertEquals(20000, customer.getFunds(),0);
     }
 
+    @Test
+    public void dealershipCanRepairCar(){
+        assertEquals(350000, dealership.getTill(),0);
+        assertEquals(16000, carP1.getPrice(), 0);
+        carP1.getsDamaged(4000);
+        assertEquals(12000, carP1.getCurrentValue(),0);
+        dealership.repairCar(carP1);
+        assertEquals(346000, dealership.getTill(), 0);
+        assertEquals(carP1.getPrice(), carP1.getCurrentValue(), 0);
+    }
 
 }

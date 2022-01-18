@@ -24,8 +24,23 @@ public class Dealership {
         this.stock.add(_car);
     }
 
-    public void sellCar(Car _car, Customer customer){
-        this.stock.remove(_car);
-        customer.buyCar(_car);
+    public String sellCar(Car _car, Customer customer){
+        if (customer.getFunds() >= _car.getPrice()){
+            this.stock.remove(_car);
+            customer.buyCar(_car);
+            this.collectMoney(_car);
+            return "Transaction completed";
+        } 
+            return "insufficient funds, sorry. Go buy a bicycle";
+        
+    }
+
+    public void repairCar(Car _car){
+        this.till -= (_car.getPrice()- _car.getCurrentValue());
+        _car.setCurrentValue(_car.getPrice());
+    }
+    
+    public void collectMoney(Car _car){
+        this.till += _car.getPrice();
     }
 }
