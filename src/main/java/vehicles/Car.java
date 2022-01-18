@@ -58,6 +58,10 @@ public abstract class Car {
         return currentValue;
     }
 
+    public void setCurrentValue(double currentValue) {
+        this.currentValue = currentValue;
+    }
+
     public void getsDamaged(double damage){
         this.currentValue -= damage;
     }

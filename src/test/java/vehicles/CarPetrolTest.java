@@ -30,4 +30,13 @@ public class CarPetrolTest {
         assertEquals(GearboxType.MANUAL, pCar.getGearbox().getGearboxType());
         assertEquals(TyresManufacturer.GOODYEAR, pCar.getTyres().getManufacturer());
     }
+
+    @Test
+    public void carGetsDamaged(){
+        assertEquals(27000, pCar.getPrice(), 0);
+        assertEquals(27000, pCar.getCurrentValue(), 0);
+        pCar.getsDamaged(5000);
+        assertEquals(27000, pCar.getPrice(), 0);
+        assertEquals(22000, pCar.getCurrentValue(), 0);
+    }
 }
