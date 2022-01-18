@@ -1,4 +1,12 @@
 package vehicles;
 
-public class CarElectric {
+import vehicleParts.Engine;
+import vehicleParts.Gearbox;
+import vehicleParts.Tyres;
+
+public class CarElectric extends Car{
+
+    public CarElectric(String make, String model, Engine engine, Gearbox gearbox, Tyres tyres, double price, String colour){
+        super(make, model, engine, gearbox, tyres, price, colour);
+    }
 }
